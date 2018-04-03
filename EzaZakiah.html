@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CV Eza Zakiah</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<style type="text/css">
+			.tab img{
+				width: 800px;
+			}
+			.col-4 img{
+				width: 100%;
+				height: 100%;
+				cursor: pointer;
+			}
+			.col-4{
+				display: grid;
+				grid-template-columns: auto  auto;
+				grid-gap: 2px;
+			}
+			.imgBig{
+				width: 90%;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="container py-2">
+			<div class="row">
+				<div class="col-12">
+					
+					<ul class="nav nav-tabs">
+					  <li class="nav-item">
+					    <a class="nav-link" href="#">MyCV</a>
+					  </li>
+					  <li class="nav-item">
+					    <a class="nav-link" href="#">data completeness</a>
+					  </li>
+					</ul>
+				
+					<div class="tab text-center py-2">
+						<img src="img/cv.png" alt="" class="img-thumbnail">
+					</div>
+					<div class="tab2 d-none py-2">
+						<div class="row">
+							<div class="col-4">
+								<img src="img/1.jpeg" alt="">
+								<img src="img/2.jpeg" alt="">
+								<img src="img/3.jpeg" alt="">
+								<img src="img/4.jpeg" alt="">
+								<img src="img/5.jpeg" alt="">
+								<img src="img/6.jpeg" alt="">
+								<img src="img/7.jpeg" alt="">
+								<img src="img/8.jpeg" alt="">
+							</div>
+							<div class="col-8">
+								<img src="img/1.jpeg" alt="" class="imgBig">
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			let [navLink, tab, tab2, gbrK, gbrB] = [
+				document.querySelectorAll('.nav-link'),
+				document.querySelector('.tab'),
+				document.querySelector('.tab2'),
+				document.querySelectorAll('.col-4 img'),				
+				document.querySelector('.imgBig'),
+
+
+			];
+			navLink[0].classList.add('active');
+
+			navLink.forEach(nav => nav.addEventListener('click', klik));
+
+			function klik(e){
+				navLink.forEach(nav=>nav.classList.remove('active'))
+				e.target.classList.toggle('active');
+				if(e.target.innerHTML == 'data completeness'){
+					tab.classList.add('d-none');
+					tab2.classList.remove('d-none')
+				}else {
+					tab.classList.remove('d-none');
+					tab2.classList.remove('d-none')
+				}
+			}
+
+			gbrK.forEach(gbr => gbr.addEventListener('click', klikGbr));
+
+			function klikGbr(e){
+				gbrB.src = e.target.src;
+			}
+
+		</script>
+	</body>
+</html>
+
